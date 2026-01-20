@@ -366,9 +366,9 @@ const Index = () => {
                     </div>
                     <div>
                       <CardTitle className="text-lg mb-2">График работы</CardTitle>
-                      <CardDescription className="text-base space-y-1">
-                        <div>Пн-Пт: 09:00 - 20:00</div>
-                        <div>Сб-Вс: 10:00 - 18:00</div>
+                      <CardDescription className="text-base">
+                        Пн-Пт: 09:00 - 20:00<br />
+                        Сб-Вс: 10:00 - 18:00
                       </CardDescription>
                     </div>
                   </div>
