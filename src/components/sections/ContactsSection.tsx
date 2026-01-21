@@ -32,13 +32,34 @@ const ContactsSection = () => {
     return '';
   };
 
-  const validatePhone = (phone: string): string => {
-    if (!phone.trim()) {
-      return 'Пожалуйста, введите номер телефона';
+  const formatPhoneNumber = (value: string): string => {
+    const digits = value.replace(/\D/g, '');
+    
+    if (digits.length === 0) return '+7 ';
+    if (digits.length <= 1) return '+7 ';
+    if (digits.length <= 4) return `+7 (${digits.slice(1)}`;
+    if (digits.length <= 7) return `+7 (${digits.slice(1, 4)}) ${digits.slice(4)}`;
+    if (digits.length <= 9) return `+7 (${digits.slice(1, 4)}) ${digits.slice(4, 7)}-${digits.slice(7)}`;
+    return `+7 (${digits.slice(1, 4)}) ${digits.slice(4, 7)}-${digits.slice(7, 9)}-${digits.slice(9, 11)}`;
+  };
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const input = e.target.value;
+    
+    if (input.length < 4) {
+      setFormData({ ...formData, phone: '+7 ' });
+      return;
     }
-    const cleanPhone = phone.replace(/[\s\-\(\)]/g, '');
-    if (!/^\+?[78]?\d{10}$/.test(cleanPhone)) {
-      return 'Введите корректный номер телефона (10 цифр)';
+    
+    const formatted = formatPhoneNumber(input);
+    setFormData({ ...formData, phone: formatted });
+    if (errors.phone) setErrors({ ...errors, phone: '' });
+  };
+
+  const validatePhone = (phone: string): string => {
+    const digits = phone.replace(/\D/g, '');
+    if (digits.length < 11) {
+      return 'Введите полный номер телефона';
     }
     return '';
   };
@@ -217,11 +238,13 @@ const ContactsSection = () => {
                   <Input
                     id="phone"
                     type="tel"
-                    placeholder="+7 (999) 123-45-67"
-                    value={formData.phone}
-                    onChange={(e) => {
-                      setFormData({ ...formData, phone: e.target.value });
-                      if (errors.phone) setErrors({ ...errors, phone: '' });
+                    placeholder="+7 (___) ___-__-__"
+                    value={formData.phone || '+7 '}
+                    onChange={handlePhoneChange}
+                    onFocus={(e) => {
+                      if (!formData.phone) {
+                        setFormData({ ...formData, phone: '+7 ' });
+                      }
                     }}
                     required
                     className={`mt-2 ${errors.phone ? 'border-red-500' : ''}`}
