@@ -60,6 +60,11 @@ const ProductsAndServicesSection = () => {
       description: 'Подбор ортопедических изделий с учётом ваших особенностей'
     },
     {
+      icon: 'CreditCard',
+      title: 'Оплата сертификатом СФР',
+      description: 'Принимаем электронные сертификаты Социального фонда России'
+    },
+    {
       icon: 'Package',
       title: 'Доставка',
       description: 'Доставка по городу в день заказа'
