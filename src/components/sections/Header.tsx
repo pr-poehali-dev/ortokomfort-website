@@ -18,7 +18,7 @@ const Header = ({ onNavigate }: HeaderProps) => {
             />
             <div>
               <h1 className="text-2xl font-bold text-primary">Ортокомфорт</h1>
-              <p className="text-sm text-muted-foreground">Здоровье. Движение. Забота</p>
+              <p className="text-sm text-muted-foreground">Ваш комфорт - наш приоритет</p>
             </div>
           </div>
           <nav className="hidden md:flex gap-6">
