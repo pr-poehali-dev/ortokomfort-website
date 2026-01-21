@@ -68,6 +68,11 @@ const ProductsAndServicesSection = () => {
       icon: 'Shield',
       title: 'Гарантия качества',
       description: 'Все товары сертифицированы, гарантия от производителя'
+    },
+    {
+      icon: 'ShoppingBag',
+      title: 'Аренда',
+      description: 'Аренда колясок, костылей и ходунков по доступным ценам'
     }
   ];
 

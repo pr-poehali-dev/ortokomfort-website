@@ -37,7 +37,9 @@ const ContactsSection = () => {
                   <div>
                     <CardTitle className="text-lg mb-2">Адрес</CardTitle>
                     <CardDescription className="text-base">
-                      г. Москва, ул. Примерная, д. 123
+                      <a href="https://yandex.ru/profile/140440878977?lang=ru" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                        г. Альметьевск, ул. Чехова, 20
+                      </a>
                     </CardDescription>
                   </div>
                 </div>
@@ -53,7 +55,9 @@ const ContactsSection = () => {
                   <div>
                     <CardTitle className="text-lg mb-2">Телефон</CardTitle>
                     <CardDescription className="text-base">
-                      +7 (495) 123-45-67
+                      <a href="tel:+79961210555" className="hover:text-primary transition-colors">
+                        +7 996 121 05 55
+                      </a>
                     </CardDescription>
                   </div>
                 </div>
@@ -94,16 +98,28 @@ const ContactsSection = () => {
             </Card>
 
             {/* Map */}
-            <div className="rounded-lg overflow-hidden shadow-lg h-64">
-              <iframe
-                src="https://yandex.ru/map-widget/v1/?um=constructor%3A64c5b1f8c7b8e8e8c7b8e8e8c7b8e8e8&amp;source=constructor"
-                width="100%"
-                height="100%"
-                frameBorder="0"
-                className="border-0"
-                title="Карта расположения магазина"
-              ></iframe>
-            </div>
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Icon name="Map" size={24} className="text-primary" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-lg mb-2">Найти нас на карте</CardTitle>
+                    <CardDescription className="text-base flex gap-4">
+                      <a href="https://yandex.ru/profile/140440878977?lang=ru" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center gap-1">
+                        <Icon name="Map" size={16} />
+                        Яндекс Карты
+                      </a>
+                      <a href="https://go.2gis.com/XJyNv" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center gap-1">
+                        <Icon name="MapPin" size={16} />
+                        2GIS
+                      </a>
+                    </CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+            </Card>
           </div>
 
           {/* Contact Form */}
