@@ -81,22 +81,6 @@ const ContactsSection = () => {
               </CardHeader>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Icon name="Mail" size={24} className="text-primary" />
-                  </div>
-                  <div>
-                    <CardTitle className="text-lg mb-2">Email</CardTitle>
-                    <CardDescription className="text-base">
-                      info@ortokomfort.ru
-                    </CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-            </Card>
-
             {/* Messengers */}
             <Card className="hover:shadow-lg transition-shadow">
               <CardHeader>

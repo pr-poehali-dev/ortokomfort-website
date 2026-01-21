@@ -23,7 +23,6 @@ const Footer = () => {
             <h4 className="font-semibold mb-4 text-lg">Контакты</h4>
             <div className="space-y-2 text-gray-300 text-sm">
               <p>+7 996 121 05 55</p>
-              <p>info@ortokomfort.ru</p>
               <p>г. Альметьевск, ул. Чехова, 20</p>
             </div>
           </div>
