@@ -13,9 +13,64 @@ const ContactsSection = () => {
     message: ''
   });
 
+  const [errors, setErrors] = useState({
+    name: '',
+    phone: '',
+    message: ''
+  });
+
+  const validateName = (name: string): string => {
+    if (!name.trim()) {
+      return 'Пожалуйста, введите ваше имя';
+    }
+    if (name.trim().length < 2) {
+      return 'Имя должно содержать минимум 2 символа';
+    }
+    if (!/^[а-яёА-ЯЁa-zA-Z\s-]+$/.test(name)) {
+      return 'Имя может содержать только буквы, пробелы и дефис';
+    }
+    return '';
+  };
+
+  const validatePhone = (phone: string): string => {
+    if (!phone.trim()) {
+      return 'Пожалуйста, введите номер телефона';
+    }
+    const cleanPhone = phone.replace(/[\s\-\(\)]/g, '');
+    if (!/^\+?[78]?\d{10}$/.test(cleanPhone)) {
+      return 'Введите корректный номер телефона (10 цифр)';
+    }
+    return '';
+  };
+
+  const validateMessage = (message: string): string => {
+    if (!message.trim()) {
+      return 'Пожалуйста, введите сообщение';
+    }
+    if (message.trim().length < 10) {
+      return 'Сообщение должно содержать минимум 10 символов';
+    }
+    return '';
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    
+    const nameError = validateName(formData.name);
+    const phoneError = validatePhone(formData.phone);
+    const messageError = validateMessage(formData.message);
+
+    setErrors({
+      name: nameError,
+      phone: phoneError,
+      message: messageError
+    });
+
+    if (!nameError && !phoneError && !messageError) {
+      console.log('Form submitted:', formData);
+      alert('Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.');
+      setFormData({ name: '', phone: '', message: '' });
+    }
   };
 
   return (
@@ -146,10 +201,16 @@ const ContactsSection = () => {
                     id="name"
                     placeholder="Иван Иванов"
                     value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    onChange={(e) => {
+                      setFormData({ ...formData, name: e.target.value });
+                      if (errors.name) setErrors({ ...errors, name: '' });
+                    }}
                     required
-                    className="mt-2"
+                    className={`mt-2 ${errors.name ? 'border-red-500' : ''}`}
                   />
+                  {errors.name && (
+                    <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+                  )}
                 </div>
                 <div>
                   <Label htmlFor="phone" className="text-base">Телефон *</Label>
@@ -158,21 +219,34 @@ const ContactsSection = () => {
                     type="tel"
                     placeholder="+7 (999) 123-45-67"
                     value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    onChange={(e) => {
+                      setFormData({ ...formData, phone: e.target.value });
+                      if (errors.phone) setErrors({ ...errors, phone: '' });
+                    }}
                     required
-                    className="mt-2"
+                    className={`mt-2 ${errors.phone ? 'border-red-500' : ''}`}
                   />
+                  {errors.phone && (
+                    <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
+                  )}
                 </div>
                 <div>
-                  <Label htmlFor="message" className="text-base">Сообщение</Label>
+                  <Label htmlFor="message" className="text-base">Сообщение *</Label>
                   <Textarea
                     id="message"
                     placeholder="Расскажите, чем мы можем вам помочь..."
                     value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    onChange={(e) => {
+                      setFormData({ ...formData, message: e.target.value });
+                      if (errors.message) setErrors({ ...errors, message: '' });
+                    }}
+                    required
                     rows={5}
-                    className="mt-2"
+                    className={`mt-2 ${errors.message ? 'border-red-500' : ''}`}
                   />
+                  {errors.message && (
+                    <p className="text-red-500 text-sm mt-1">{errors.message}</p>
+                  )}
                 </div>
                 <Button type="submit" className="w-full text-base py-6">
                   <Icon name="Send" size={20} className="mr-2" />
