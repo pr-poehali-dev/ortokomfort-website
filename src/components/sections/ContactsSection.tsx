@@ -73,8 +73,8 @@ const ContactsSection = () => {
                   <div>
                     <CardTitle className="text-lg mb-2">График работы</CardTitle>
                     <CardDescription className="text-base">
-                      Пн-Пт: 09:00 - 20:00<br />
-                      Сб-Вс: 10:00 - 18:00
+                      Пн — Пт: 09:00–18:00<br />
+                      Сб — Вс: 10:00–16:00
                     </CardDescription>
                   </div>
                 </div>
@@ -91,6 +91,30 @@ const ContactsSection = () => {
                     <CardTitle className="text-lg mb-2">Email</CardTitle>
                     <CardDescription className="text-base">
                       info@ortokomfort.ru
+                    </CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+            </Card>
+
+            {/* Messengers */}
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Icon name="MessageCircle" size={24} className="text-primary" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-lg mb-2">Напишите нам</CardTitle>
+                    <CardDescription className="text-base flex gap-4">
+                      <a href="https://t.me/+79961210555" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center gap-1">
+                        <Icon name="Send" size={16} />
+                        Telegram
+                      </a>
+                      <a href="https://wa.me/79961210555" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center gap-1">
+                        <Icon name="MessageCircle" size={16} />
+                        WhatsApp
+                      </a>
                     </CardDescription>
                   </div>
                 </div>

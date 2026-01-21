@@ -30,8 +30,8 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4 text-lg">Режим работы</h4>
             <div className="space-y-2 text-gray-300 text-sm">
-              <p>Понедельник - Пятница: 09:00 - 20:00</p>
-              <p>Суббота - Воскресенье: 10:00 - 18:00</p>
+              <p>Пн — Пт: 09:00–18:00</p>
+              <p>Сб — Вс: 10:00–16:00</p>
             </div>
           </div>
         </div>
