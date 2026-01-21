@@ -31,33 +31,33 @@ const HeroSection = ({ onNavigate }: HeroSectionProps) => {
             </div>
           </div>
           <div className="animate-scale-in">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Card className="hover:shadow-lg transition-shadow">
-                <CardHeader className="pb-3">
-                  <Icon name="Award" size={32} className="text-primary mb-2" />
+                <CardHeader className="pb-3 text-center sm:text-left">
+                  <Icon name="Award" size={32} className="text-primary mb-2 mx-auto sm:mx-0" />
                   <CardTitle className="text-2xl">10+</CardTitle>
                   <CardDescription>лет на рынке</CardDescription>
                 </CardHeader>
               </Card>
               <Card className="hover:shadow-lg transition-shadow">
-                <CardHeader className="pb-3">
-                  <Icon name="Users" size={32} className="text-primary mb-2" />
+                <CardHeader className="pb-3 text-center sm:text-left">
+                  <Icon name="Users" size={32} className="text-primary mb-2 mx-auto sm:mx-0" />
                   <CardTitle className="text-2xl">5000+</CardTitle>
                   <CardDescription>довольных клиентов</CardDescription>
                 </CardHeader>
               </Card>
               <Card className="hover:shadow-lg transition-shadow">
-                <CardHeader className="pb-3">
-                  <Icon name="Package" size={32} className="text-primary mb-2" />
+                <CardHeader className="pb-3 text-center sm:text-left">
+                  <Icon name="Package" size={32} className="text-primary mb-2 mx-auto sm:mx-0" />
                   <CardTitle className="text-2xl">500+</CardTitle>
                   <CardDescription>товаров в наличии</CardDescription>
                 </CardHeader>
               </Card>
               <Card className="hover:shadow-lg transition-shadow">
-                <CardHeader className="pb-3">
-                  <Icon name="ThumbsUp" size={32} className="text-primary mb-2" />
+                <CardHeader className="pb-3 text-center sm:text-left">
+                  <Icon name="ThumbsUp" size={32} className="text-primary mb-2 mx-auto sm:mx-0" />
                   <CardTitle className="text-2xl">100%</CardTitle>
-                  <CardDescription className="text-sm">сертифицированная продукция</CardDescription>
+                  <CardDescription>сертифицированная продукция</CardDescription>
                 </CardHeader>
               </Card>
             </div>
