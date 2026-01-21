@@ -19,7 +19,7 @@ const Header = ({ onNavigate }: HeaderProps) => {
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b shadow-sm">
       <div className="container mx-auto px-4 py-3 md:py-4">
-        <div className="flex items-center justify-between gap-4">
+        <div className="flex items-center justify-between gap-2">
           {/* Logo */}
           <div className="flex items-center gap-2 md:gap-3 flex-shrink-0">
             <img 
@@ -56,21 +56,21 @@ const Header = ({ onNavigate }: HeaderProps) => {
             </Button>
           </a>
 
-          {/* Mobile Call Button */}
-          <a href="tel:+79961210555" className="lg:hidden">
-            <Button size="sm" className="px-3">
-              <Icon name="Phone" size={18} />
-            </Button>
-          </a>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
-            aria-label="Меню"
-          >
-            <Icon name={mobileMenuOpen ? "X" : "Menu"} size={24} />
-          </button>
+          {/* Mobile Buttons */}
+          <div className="flex items-center gap-2 lg:hidden">
+            <a href="tel:+79961210555">
+              <Button size="sm" className="px-3">
+                <Icon name="Phone" size={18} />
+              </Button>
+            </a>
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+              aria-label="Меню"
+            >
+              <Icon name={mobileMenuOpen ? "X" : "Menu"} size={24} />
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}

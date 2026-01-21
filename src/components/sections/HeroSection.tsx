@@ -57,7 +57,7 @@ const HeroSection = ({ onNavigate }: HeroSectionProps) => {
                 <CardHeader className="pb-3">
                   <Icon name="ThumbsUp" size={32} className="text-primary mb-2" />
                   <CardTitle className="text-2xl">100%</CardTitle>
-                  <CardDescription>сертифицированная продукция</CardDescription>
+                  <CardDescription className="text-sm">сертифицированная продукция</CardDescription>
                 </CardHeader>
               </Card>
             </div>
